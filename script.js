@@ -50,7 +50,7 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: 'Human is just a brief algorithm, <accent>10,247</accent> lines.',
+        title: 'Human is just a brief algorithm, <accent>10,247</accent> lines of algorithms.',
         intro: 'Hi, I\'m <strong>Tony Zhou</strong>. Please type <inline data-command="help">help</inline> to know more about me.',
         meta: {
           role: 'ROLE',
