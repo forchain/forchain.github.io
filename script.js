@@ -13,11 +13,11 @@
   let historyIndex = 0;
   let booted = false;
 
-  const ASCII_ART = String.raw`  ____  _   _ ____ _     ___ ____   ___
- / __ \| | | / ___| |   |_ _|  _ \ / _ \
-| |  | | | | \___ \| |    | || |_) | | | |
-| |__| | |_| |___) | |___ | ||  _ <| |_| |
- \____/ \___/|____/|_____|___|_| \_\\___/`;
+  const ASCII_ART = String.raw`  ___     _   _   _______   _         ___     _____    ____
+ / _ \   | | | |  |_   _|  | |       |_ _|   | ____|  |  _ \
+| | | |  | | | |    | |    | |        | |    |  _|    | |_) |
+| |_| |  | |_| |    | |    | |___     | |    | |___   |    /
+ \___/    \___/     |_|    |_____|   |___|   |_____|  |_|_\_\ `;
 
   const COMMANDS = {
     help: {
@@ -25,15 +25,15 @@
       render: () => `
         <div class="section-heading">available commands</div>
         <div class="help-grid">
-          <span class="help-command">whoami</span><span class="help-description">who is Tony Zhou?</span>
-          <span class="help-command">ls -la ~/experience</span><span class="help-description">career timeline</span>
-          <span class="help-command">cat ~/skills.txt</span><span class="help-description">technical toolkit</span>
-          <span class="help-command">tree ~/projects</span><span class="help-description">selected projects &amp; ventures</span>
-          <span class="help-command">contact</span><span class="help-description">open a communication channel</span>
-          <span class="help-command">theme [dark|light]</span><span class="help-description">switch color theme</span>
-          <span class="help-command">banner</span><span class="help-description">replay the welcome screen</span>
-          <span class="help-command">clear</span><span class="help-description">clear terminal output</span>
-          <span class="help-command">help</span><span class="help-description">this list</span>
+          <button type="button" class="inline-command" data-command="whoami">whoami</button><span class="help-description">who is Tony Zhou?</span>
+          <button type="button" class="inline-command" data-command="ls -la ~/experience">ls -la ~/experience</button><span class="help-description">career timeline</span>
+          <button type="button" class="inline-command" data-command="cat ~/skills.txt">cat ~/skills.txt</button><span class="help-description">technical toolkit</span>
+          <button type="button" class="inline-command" data-command="tree ~/projects">tree ~/projects</button><span class="help-description">selected projects &amp; ventures</span>
+          <button type="button" class="inline-command" data-command="contact">contact</button><span class="help-description">open a communication channel</span>
+          <button type="button" class="inline-command" data-command="theme">theme [dark|light]</button><span class="help-description">switch color theme</span>
+          <button type="button" class="inline-command" data-command="banner">banner</button><span class="help-description">replay the welcome screen</span>
+          <button type="button" class="inline-command" data-command="clear">clear</button><span class="help-description">clear terminal output</span>
+          <button type="button" class="inline-command" data-command="help">help</button><span class="help-description">this list</span>
         </div>`
     },
     whoami: {
@@ -59,7 +59,7 @@
       render: () => `
         <div class="section-heading">~/experience</div>
         <ul class="experience-list">
-          <li class="experience-row"><span class="experience-year">2023—now</span><span class="experience-company">煦象 AI</span><span class="experience-role">产品研发架构师 · AI 教育应用 / LangChain / Dify</span></li>
+          <li class="experience-row"><span class="experience-year">2023—now</span><span class="experience-company">熙象 AI</span><span class="experience-role">产品研发架构师 · AI 教育应用 / LangChain / Dify</span></li>
           <li class="experience-row"><span class="experience-year">2021—2023</span><span class="experience-company">光追网络</span><span class="experience-role">技术经理 · Web3 / GameFi / Merlin Chain / Space Kill / PopSocial</span></li>
           <li class="experience-row"><span class="experience-year">2018—2021</span><span class="experience-company">链者科技</span><span class="experience-role">联合创始人 · Qitmeer 公链 / DAGfans 社区</span></li>
           <li class="experience-row"><span class="experience-year">2015—2018</span><span class="experience-company">巨人网络</span><span class="experience-role">技术经理 · 游戏研发与团队管理</span></li>
@@ -86,22 +86,22 @@
       render: () => `
         <div class="section-heading">~/projects</div>
         <pre class="tree"><span class="tree-accent">~/projects</span>
-├── <span class="tree-accent">qitmeer/</span>
-│   ├── dag-consensus.md
-│   ├── node-architecture.md
-│   └── community/
-├── <span class="tree-accent">dagfans/</span>
-│   ├── open-community
-│   └── ecosystem-tools
-├── <span class="tree-accent">chain-quant/</span>
-│   ├── strategy-engine.py
-│   └── dashboard.svelte
-├── <span class="tree-accent">ai-education/</span>
-│   ├── agent-orchestration
-│   └── learning-workflows
-└── <span class="tree-accent">gamefi-lab/</span>
-    ├── merlin-chain
-    └── space-kill</pre>`
+│─── <span class="tree-accent">qitmeer/</span>
+│   ├─── dag-consensus.md
+│   ├─── node-architecture.md
+│   └─── community/
+├─── <span class="tree-accent">dagfans/</span>
+│   ├─── open-community
+│   └─── ecosystem-tools
+├─── <span class="tree-accent">chain-quant/</span>
+│   ├─── strategy-engine.py
+│   └─── dashboard.svelte
+├─── <span class="tree-accent">ai-education/</span>
+│   ├─── agent-orchestration
+│   └─── learning-workflows
+└─── <span class="tree-accent">gamefi-lab/</span>
+    ├─── merlin-chain
+    └─── space-kill</pre>`
     },
     contact: {
       description: 'show contact channels',
@@ -116,7 +116,7 @@
   };
 
   function promptMarkup(command) {
-    return `<span class="prompt-user">tony</span><span class="prompt-at">@</span><span class="prompt-host">forchain</span><span class="prompt-path">:~</span><span class="prompt-symbol">›</span> ${escapeHtml(command)}`;
+    return `<span class="prompt-user">outlier</span><span class="prompt-at">@</span><span class="prompt-host">chainer.tech</span><span class="prompt-path">:~</span><span class="prompt-symbol">›</span> ${escapeHtml(command)}`;
   }
 
   function escapeHtml(value) {
@@ -137,7 +137,7 @@
         <div>
           <p class="eyebrow">welcome to the source</p>
           <h1 class="hero-title">Build <span>the improbable.</span></h1>
-          <p class="hero-copy">Hi, I'm <strong>Tony Zhou</strong>.<br>This is not a regular resume page — type commands to explore my experience, skills and what I'm building.</p>
+          <p class="hero-copy">Hi, I'm <strong>Tony Zhou</strong>.<br>Please type <button type="button" class="inline-command" data-command="help">help</button> to know more about me.</p>
         </div>
         <div class="hero-meta"><div>ROLE<span class="meta-value">AI architect</span></div><div>EXP<span class="meta-value">19 years</span></div><div>BASE<span class="meta-value">Shanghai</span></div><div>MODE<span class="meta-value">terminal / online</span></div></div>
       </div>`;
@@ -250,7 +250,7 @@
   function boot() {
     const now = new Date();
     loginDate.textContent = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-    typeWriter(bootCommand, './welcome.sh', 40).then(() => {
+    typeWriter(bootCommand, './resume.sh', 40).then(() => {
       window.setTimeout(() => {
         bootSequence.classList.add('is-complete');
         showBanner(false);
@@ -286,13 +286,35 @@
     }
   });
 
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const menu = menuToggle.closest('.command-menu');
+      const isOpen = menu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
   document.addEventListener('click', (event) => {
     const commandButton = event.target.closest('[data-command]');
     if (commandButton) {
       execute(commandButton.dataset.command);
       input.focus();
+      const menu = commandButton.closest('.command-menu');
+      if (menu) {
+        menu.classList.remove('open');
+        menu.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
+      }
     } else if (booted && !event.target.closest('a, button')) {
       input.focus();
+    }
+
+    if (!event.target.closest('.command-menu')) {
+      document.querySelectorAll('.command-menu.open').forEach((menu) => {
+        menu.classList.remove('open');
+        menu.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
+      });
     }
   });
 
