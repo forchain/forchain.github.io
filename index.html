@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070a08">
+  <meta name="description" content="Tony Outlier — AI engineer, Web3 builder, quantitative researcher and technical leader.">
+  <title>tony@forchain.io — zsh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="terminal-shell" aria-label="Tony Outlier personal terminal">
+    <header class="window-bar">
+      <div class="traffic-lights" aria-hidden="true">
+        <span class="traffic-light close"></span>
+        <span class="traffic-light minimize"></span>
+        <span class="traffic-light maximize"></span>
+      </div>
+      <div class="window-title"><span class="title-mark">⌘</span> tony@forchain.io — zsh</div>
+      <div class="window-actions" aria-hidden="true"><span></span><span></span><span></span></div>
+    </header>
+
+    <section class="terminal-body">
+      <div class="boot-sequence" id="boot-sequence" aria-live="polite">
+        <div class="boot-line"><span class="muted">Last login:</span> <span id="login-date">today</span> on ttys001</div>
+        <div class="boot-line boot-status"><span class="prompt-symbol">›</span> <span class="boot-command">./welcome.sh</span><span class="cursor-block" aria-hidden="true"></span></div>
+        <div class="progress-track" aria-hidden="true"><span class="progress-fill"></span></div>
+      </div>
+
+      <div class="terminal-output" id="terminal-output" aria-live="polite" aria-atomic="false"></div>
+
+      <form class="command-line" id="command-form" autocomplete="off">
+        <label class="prompt-label" for="command-input"><span class="prompt-user">tony</span><span class="prompt-at">@</span><span class="prompt-host">forchain</span><span class="prompt-path">:~</span><span class="prompt-symbol">›</span></label>
+        <input id="command-input" name="command" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command" autofocus>
+      </form>
+      <div class="terminal-hint"><span class="hint-dot"></span> type <button type="button" class="inline-command" data-command="help">help</button> for available commands <span class="hint-key">TAB</span> autocomplete <span class="hint-key">↑↓</span> history</div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© 2026 Tony Outlier</span><span class="footer-separator">/</span><span>上海 · UTC+8</span><a href="https://github.com/forchain" target="_blank" rel="noreferrer">github.com/forchain ↗</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
