@@ -81,7 +81,8 @@
         heading: '~/experience',
         items: [
           { year: '2023—now', company: '煦象 AI', role: '产品研发架构师 · AI 教育应用 / LangChain / Dify' },
-          { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill / PopSocial' },
+          { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill' },
+          { year: '2019—2022', company: 'PopSocial', role: '联合创始人 · SocialFi 协议 / Web3 社交' },
           { year: '2018—2021', company: '链者科技', role: '联合创始人 · Qitmeer 公链 / DAGfans 社区' },
           { year: '2015—2018', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' },
           { year: '2011—2015', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' },
@@ -205,7 +206,8 @@
         heading: '~/经历',
         items: [
           { year: '2023—至今', company: '煦象 AI', role: '产品研发架构师 · AI 教育应用 / LangChain / Dify' },
-          { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill / PopSocial' },
+          { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill' },
+          { year: '2019—2022', company: 'PopSocial', role: '联合创始人 · SocialFi 协议 / Web3 社交' },
           { year: '2018—2021', company: '链者科技', role: '联合创始人 · Qitmeer 公链 / DAGfans 社区' },
           { year: '2015—2018', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' },
           { year: '2011—2015', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' },

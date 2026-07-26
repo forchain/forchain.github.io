@@ -271,8 +271,7 @@ a:hover, a:focus-visible { color: var(--green-bright); text-decoration: underlin
 
 .site-footer { display: flex; flex-wrap: wrap; gap: 13px; align-items: center; width: min(1160px, 100%); margin: 16px auto 0; color: var(--dim); font-size: 10px; }
 .site-footer .footer-spacer { margin-left: auto; }
-.site-footer .footer-sep-dot { color: #294331; padding: 0 2px; }
-:root[data-theme="light"] .site-footer .footer-sep-dot { color: #a8c4b4; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; padding: 0; font-size: 11px; line-height: 1; }
 .footer-separator { color: #294331; }
 :root[data-theme="light"] .footer-separator { color: #a8c4b4; }
 .lang-switch { display: inline-flex; gap: 2px; align-items: center; color: var(--dim); font-size: 10px; }
