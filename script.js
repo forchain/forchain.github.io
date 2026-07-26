@@ -49,7 +49,7 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: 'Human is just a brief algorithm, <accent>10,247</accent> lines of algorithm.',
+        title: 'Human, <accent>10,247</accent> lines of algorithm.',
         intro: 'Hi, I\'m <strong>Tony Zhou</strong>. Please type <inline data-command="help">help</inline> to know more about me.',
         meta: {
           role: 'ROLE',
@@ -173,7 +173,7 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: '人类只是一段简短的算法，<accent>10,247</accent> 行。',
+        title: '人类只是<accent>10,247</accent>行的算法。',
         intro: '你好，我是 <strong>Tony Zhou</strong>。请输入 <inline data-command="help">help</inline> 了解更多。',
         meta: {
           role: '角色',
