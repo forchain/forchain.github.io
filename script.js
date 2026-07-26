@@ -49,13 +49,13 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: 'Human, <accent>10,247</accent> lines of algorithm.',
+        title: '<accent>10,247</accent> lines of algorithm.',
         intro: 'Hi, I\'m <strong>Tony Zhou</strong>. Please type <inline data-command="help">help</inline> to know more about me.',
         meta: {
           role: 'ROLE',
           roleValue: 'Developer / Architect',
           linkedin: 'LINKEDIN',
-          linkedinHandle: '@tony-outlier-zhou',
+          linkedinHandle: '@tony-zhou',
           mail: 'MAIL',
           mailHandle: 'outlier@chainer.tech',
           github: 'GITHUB',
@@ -173,13 +173,13 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: '人类只是<accent>10,247</accent>行的算法。',
+        title: '<accent>10,247</accent> 行的算法。',
         intro: '你好，我是 <strong>Tony Zhou</strong>。请输入 <inline data-command="help">help</inline> 了解更多。',
         meta: {
           role: '角色',
           roleValue: '开发者 / 架构师',
           linkedin: '领英',
-          linkedinHandle: '@tony-outlier-zhou',
+          linkedinHandle: '@tony-zhou',
           mail: '邮箱',
           mailHandle: 'outlier@chainer.tech',
           github: 'GitHub',
