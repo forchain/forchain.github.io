@@ -50,7 +50,7 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: 'Human is just a brief algorithm, 10,247 lines.',
+        title: 'Human is just a brief algorithm, <accent>10,247</accent> lines.',
         intro: 'Hi, I\'m <strong>Tony Zhou</strong>. Please type <inline data-command="help">help</inline> to know more about me.',
         meta: {
           role: 'ROLE',
@@ -66,16 +66,16 @@
       whoami: {
         eyebrow: 'AI product architect · builder · outlier',
         title: 'Tony <span>Zhou</span>',
-        copy: '<strong>Tony Zhou</strong>, <strong>41</strong>, with <strong>19 years</strong> of engineering and product experience.<br>Started from Unreal game development, crossed Web2, Web3, public-chain research and technical leadership, <strong>now turning complex systems into usable AI products.</strong>',
+        copy: '<strong>Tony Zhou</strong>, with <strong>19 years</strong> of engineering and product experience.<br>Started from Unreal game development, crossed Web2, Web3, public-chain research and technical leadership, <strong>now turning complex systems into usable AI products.</strong>',
         meta: {
           base: 'BASE',
           baseValue: 'Shanghai · UTC+8',
           status: 'STATUS',
           statusValue: 'open to build',
           edu: 'EDUCATION',
-          eduValue: 'CS + AI / parallel',
-          github: 'GITHUB',
-          githubHandle: '@forchain'
+          eduValue: 'Master of Computer Engineering',
+          lang: 'LANGUAGE',
+          langValue: 'Chinese / English'
         }
       },
       experience: {
@@ -174,7 +174,7 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: '人只是一段简短的算法，10,247 行。',
+        title: '人只是一段简短的算法，<accent>10,247</accent> 行。',
         intro: '你好，我是 <strong>Tony Zhou</strong>。请输入 <inline data-command="help">help</inline> 了解更多。',
         meta: {
           role: '角色',
@@ -190,16 +190,16 @@
       whoami: {
         eyebrow: 'AI 产品架构师 · 创造者 · 异类',
         title: 'Tony <span>Zhou</span>',
-        copy: '<strong>Tony Zhou</strong>，<strong>41</strong> 岁，拥有 <strong>19 年</strong>工程与产品经验。<br>从 Unreal 游戏开发出发，穿越 Web2、Web3、公链研究与技术管理，<strong>现在把复杂系统变成可用的 AI 产品。</strong>',
+        copy: '<strong>Tony Zhou</strong>，拥有 <strong>19 年</strong>工程与产品经验。<br>从 Unreal 游戏开发出发，穿越 Web2、Web3、公链研究与技术管理，<strong>现在把复杂系统变成可用的 AI 产品。</strong>',
         meta: {
           base: '所在地',
           baseValue: '上海 · UTC+8',
           status: '状态',
           statusValue: '开放接活',
           edu: '教育',
-          eduValue: '计算机科学 + AI / 并行计算',
-          github: 'GitHub',
-          githubHandle: '@forchain'
+          eduValue: '计算机工程硕士',
+          lang: '语言',
+          langValue: '中文 / 英文'
         }
       },
       experience: {
@@ -317,6 +317,10 @@
     return template.replace(/<inline data-command="([^"]+)">([^<]+)<\/inline>/g, (_, command, label) => inlineCommand(command, label));
   }
 
+  function compileAccent(template) {
+    return template.replace(/<accent>([^<]+)<\/accent>/g, (_, label) => `<span class="accent">${escapeHtml(label)}</span>`);
+  }
+
   function compileTree(tree) {
     return tree.replace(/<accent>([^<]+)<\/accent>/g, (_, label) => `<span class="tree-accent">${escapeHtml(label)}</span>`);
   }
@@ -329,7 +333,7 @@
         <div class="hero-grid">
           <div>
             <p class="eyebrow">${escapeHtml(c.eyebrow)}</p>
-            <h1 class="hero-title">${escapeHtml(c.title)}</h1>
+            <h1 class="hero-title hero-title-banner">${compileAccent(c.title)}</h1>
             <p class="hero-copy">${compileTemplate(c.intro)}</p>
           </div>
           <div class="hero-meta">
@@ -355,7 +359,7 @@
             <div>${escapeHtml(w.meta.base)}<span class="meta-value">${escapeHtml(w.meta.baseValue)}</span></div>
             <div>${escapeHtml(w.meta.status)}<span class="meta-value">${escapeHtml(w.meta.statusValue)}</span></div>
             <div>${escapeHtml(w.meta.edu)}<span class="meta-value">${escapeHtml(w.meta.eduValue)}</span></div>
-            <div>${escapeHtml(w.meta.github)}<a class="meta-value meta-link" href="https://github.com/forchain" target="_blank" rel="noreferrer">${escapeHtml(w.meta.githubHandle)} ↗</a></div>
+            <div>${escapeHtml(w.meta.lang)}<span class="meta-value">${escapeHtml(w.meta.langValue)}</span></div>
           </div>
         </div>`;
   }

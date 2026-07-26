@@ -206,6 +206,9 @@ button { cursor: pointer; }
 .eyebrow { margin: 0 0 5px; color: var(--green); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
 .hero-title { margin: 0; color: var(--green-bright); font-size: clamp(25px, 4vw, 45px); font-weight: 500; letter-spacing: -0.07em; line-height: 1.05; }
 .hero-title span { color: var(--text); }
+.hero-title-banner { display: block; margin: 6px 0 0; color: var(--text); font-size: clamp(22px, 3.4vw, 40px); font-weight: 400; letter-spacing: -0.025em; line-height: 1.18; white-space: nowrap; }
+.hero-title-banner .accent { color: var(--green); font-weight: 500; }
+:root[data-theme="light"] .hero-title-banner .accent { color: #15803d; }
 .hero-copy { max-width: 650px; margin: 16px 0 0; color: #a9bead; }
 :root[data-theme="light"] .hero-copy { color: #3e5c4b; }
 .hero-copy strong { color: var(--green-bright); font-weight: 500; }
@@ -303,6 +306,7 @@ a:hover, a:focus-visible { color: var(--green-bright); text-decoration: underlin
   .terminal-output { min-height: 430px; }
   .hero-grid { grid-template-columns: 1fr; gap: 20px; }
   .hero-meta { grid-template-columns: repeat(2, 1fr); padding: 12px 0 0 13px; }
+  .hero-title-banner { white-space: normal; font-size: clamp(20px, 6vw, 28px); }
   .experience-row { grid-template-columns: 75px 1fr; gap: 8px; }
   .experience-role { grid-column: 2; margin-top: -8px; }
   .skill-row { grid-template-columns: 23px 1fr; gap: 7px; }
