@@ -129,7 +129,6 @@
           { cmd: 'cat ~/skills.txt', desc: 'technical toolkit' },
           { cmd: 'tree ~/projects', desc: 'selected projects & ventures' },
           { cmd: 'contact', desc: 'open a communication channel' },
-          { cmd: 'theme [dark|light]', desc: 'switch color theme' },
           { cmd: 'help', desc: 'this list' }
         ],
         unknown: 'command not found',
@@ -254,7 +253,6 @@
           { cmd: 'cat ~/技能.txt', desc: '技术工具箱' },
           { cmd: 'tree ~/项目', desc: '项目与创业' },
           { cmd: 'contact', desc: '打开沟通渠道' },
-          { cmd: 'theme [dark|light]', desc: '切换主题' },
           { cmd: 'help', desc: '本帮助' }
         ],
         unknown: '未找到命令',
@@ -570,7 +568,7 @@ ${compileTree(p.tree)}</pre>`;
     } else if (event.key === 'Tab') {
       event.preventDefault();
       const partial = input.value.trim().toLowerCase();
-      const options = ['whoami', 'ls -la ~/experience', 'cat ~/skills.txt', 'tree ~/projects', 'contact', 'theme', 'theme dark', 'theme light', 'help', 'clear'];
+      const options = ['whoami', 'ls -la ~/experience', 'cat ~/skills.txt', 'tree ~/projects', 'contact', 'help', 'clear'];
       const match = options.find((option) => option.startsWith(partial) && option !== partial);
       if (match) input.value = match;
     }
