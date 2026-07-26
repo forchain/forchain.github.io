@@ -301,6 +301,10 @@
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       btn.classList.toggle('is-active', btn.dataset.lang === currentLang());
     });
+
+    document.querySelectorAll('.theme-btn').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.themeValue === getTheme());
+    });
   }
 
   /* ---------------- string helpers ---------------- */
@@ -593,6 +597,16 @@ ${compileTree(p.tree)}</pre>`;
     });
   });
 
+  document.querySelectorAll('.theme-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const value = btn.dataset.themeValue;
+      if (value === 'dark' || value === 'light') {
+        setTheme(value);
+        applyI18nStatic();
+      }
+    });
+  });
+
   document.addEventListener('click', (event) => {
     const commandButton = event.target.closest('[data-command]');
     if (commandButton) {
@@ -603,7 +617,7 @@ ${compileTree(p.tree)}</pre>`;
         menu.classList.remove('open');
         menu.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
       }
-    } else if (booted && !event.target.closest('a, button, .lang-switch')) {
+    } else if (booted && !event.target.closest('a, button, .lang-switch, .theme-switch')) {
       input.focus();
     }
 
