@@ -85,8 +85,8 @@
           { year: '2023—2024', company: 'PopSocial', role: 'CTO · SocialFi 协议 / Web3 社交' },
           { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill' },
           { year: '2018—2021', company: '链者科技', role: '研究员（创业） · Qitmeer 公链 / DAGfans 社区' },
-          { year: '2015—2018', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' },
-          { year: '2011—2015', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' }
+          { year: '2012—2014', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' },
+          { year: '2010—2012', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' }
         ]
       },
       skills: {
@@ -210,8 +210,8 @@
           { year: '2023—2024', company: 'PopSocial', role: 'CTO · SocialFi 协议 / Web3 社交' },
           { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill' },
           { year: '2018—2021', company: '链者科技', role: '研究员（创业） · Qitmeer 公链 / DAGfans 社区' },
-          { year: '2015—2018', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' },
-          { year: '2011—2015', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' }
+          { year: '2012—2014', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' },
+          { year: '2010—2012', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' }
         ]
       },
       skills: {
