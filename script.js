@@ -19,108 +19,396 @@
 | |_| |  | |_| |    | |    | |___     | |    | |___   |    /
  \___/    \___/     |_|    |_____|   |___|   |_____|  |_|_\_\ `;
 
-  const COMMANDS = {
-    help: {
-      description: 'show available commands',
-      render: () => `
-        <div class="section-heading">available commands</div>
-        <div class="help-grid">
-          <button type="button" class="inline-command" data-command="whoami">whoami</button><span class="help-description">who is Tony Zhou?</span>
-          <button type="button" class="inline-command" data-command="ls -la ~/experience">ls -la ~/experience</button><span class="help-description">career timeline</span>
-          <button type="button" class="inline-command" data-command="cat ~/skills.txt">cat ~/skills.txt</button><span class="help-description">technical toolkit</span>
-          <button type="button" class="inline-command" data-command="tree ~/projects">tree ~/projects</button><span class="help-description">selected projects &amp; ventures</span>
-          <button type="button" class="inline-command" data-command="contact">contact</button><span class="help-description">open a communication channel</span>
-          <button type="button" class="inline-command" data-command="theme">theme [dark|light]</button><span class="help-description">switch color theme</span>
-          <button type="button" class="inline-command" data-command="banner">banner</button><span class="help-description">replay the welcome screen</span>
-          <button type="button" class="inline-command" data-command="clear">clear</button><span class="help-description">clear terminal output</span>
-          <button type="button" class="inline-command" data-command="help">help</button><span class="help-description">this list</span>
-        </div>`
+  /* i18n bundles --------------------------------------------------- */
+  const I18N = {
+    en: {
+      htmlLang: 'en',
+      metaDesc: 'Tony Zhou — Developer / Architect. Human is just a brief algorithm.',
+      menu: {
+        whoami: 'whoami',
+        experience: 'experience',
+        skills: 'skills',
+        projects: 'projects',
+        contact: 'contact',
+        theme: 'theme',
+        clear: 'clear',
+        help: 'help'
+      },
+      boot: {
+        lastLogin: 'Last login:',
+        onTty: 'on ttys001'
+      },
+      hint: {
+        type: 'type',
+        forCommands: 'for available commands',
+        tab: 'TAB',
+        autocomplete: 'autocomplete',
+        history: 'history'
+      },
+      footer: {
+        location: 'Shanghai · UTC+8'
+      },
+      contact: {
+        eyebrow: 'WELCOME TO MY CYBER HOME',
+        title: 'Human is just a brief algorithm, 10,247 lines.',
+        intro: 'Hi, I\'m <strong>Tony Zhou</strong>. Please type <inline data-command="help">help</inline> to know more about me.',
+        meta: {
+          role: 'ROLE',
+          roleValue: 'Developer / Architect',
+          linkedin: 'LINKEDIN',
+          linkedinHandle: '@tony-outlier-zhou',
+          mail: 'MAIL',
+          mailHandle: 'outlier@chainer.tech',
+          github: 'GITHUB',
+          githubHandle: '@forchain'
+        }
+      },
+      whoami: {
+        eyebrow: 'AI product architect · builder · outlier',
+        title: 'Tony <span>Zhou</span>',
+        copy: '<strong>Tony Zhou</strong>, <strong>41</strong>, with <strong>19 years</strong> of engineering and product experience.<br>Started from Unreal game development, crossed Web2, Web3, public-chain research and technical leadership, <strong>now turning complex systems into usable AI products.</strong>',
+        meta: {
+          base: 'BASE',
+          baseValue: 'Shanghai · UTC+8',
+          status: 'STATUS',
+          statusValue: 'open to build',
+          edu: 'EDUCATION',
+          eduValue: 'CS + AI / parallel',
+          github: 'GITHUB',
+          githubHandle: '@forchain'
+        }
+      },
+      experience: {
+        heading: '~/experience',
+        items: [
+          { year: '2023—now', company: '煦象 AI', role: '产品研发架构师 · AI 教育应用 / LangChain / Dify' },
+          { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill / PopSocial' },
+          { year: '2018—2021', company: '链者科技', role: '联合创始人 · Qitmeer 公链 / DAGfans 社区' },
+          { year: '2015—2018', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' },
+          { year: '2011—2015', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' },
+          { year: '2009—now', company: '乐匠互联网', role: '联合创始人 · 链者量化策略平台' }
+        ]
+      },
+      skills: {
+        heading: '~/skills.txt',
+        items: [
+          { n: '01', name: 'AI 工程', detail: 'LLM Agent / Dify / LangChain / FastAPI' },
+          { n: '02', name: '量化交易', detail: 'backtrader / SvelteKit / strategy platforms' },
+          { n: '03', name: 'Web3 / 区块链', detail: '公链架构 / 智能合约 / Solidity / Cosmos SDK' },
+          { n: '04', name: '游戏开发', detail: 'Unity / Unreal / Godot / real-time 3D' },
+          { n: '05', name: '全栈开发', detail: 'Python / Java / TypeScript / C# / Go' },
+          { n: '06', name: '运维 / DevOps', detail: 'AWS / K8s / Cloudflare / 阿里云 / 华为云' },
+          { n: '07', name: '团队与社区', detail: '国际化团队管理 / 开源社区运营' }
+        ]
+      },
+      projects: {
+        heading: '~/projects',
+        tree:
+`├── <accent>qitmeer/</accent>
+│   ├── dag-consensus.md
+│   ├── node-architecture.md
+│   └── community/
+├── <accent>dagfans/</accent>
+│   ├── open-community
+│   └── ecosystem-tools
+├── <accent>chain-quant/</accent>
+│   ├── strategy-engine.py
+│   └── dashboard.svelte
+├── <accent>ai-education/</accent>
+│   ├── agent-orchestration
+│   └── learning-workflows
+└── <accent>gamefi-lab/</accent>
+    ├── merlin-chain
+    └── space-kill`
+      },
+      help: {
+        heading: 'available commands',
+        items: [
+          { cmd: 'whoami', desc: 'who is Tony Zhou?' },
+          { cmd: 'ls -la ~/experience', desc: 'career timeline' },
+          { cmd: 'cat ~/skills.txt', desc: 'technical toolkit' },
+          { cmd: 'tree ~/projects', desc: 'selected projects & ventures' },
+          { cmd: 'contact', desc: 'open a communication channel' },
+          { cmd: 'theme [dark|light]', desc: 'switch color theme' },
+          { cmd: 'help', desc: 'this list' }
+        ],
+        unknown: 'command not found',
+        unknownHint: 'type <inline data-command="help">help</inline> to see what is available.'
+      },
+      theme: {
+        current: 'current theme',
+        usage: 'usage: theme dark | theme light | theme (toggle)',
+        unknown: 'unknown argument'
+      },
+      notFound: {
+        msg: 'zsh: command not found:',
+        hint: 'type <inline data-command="help">help</inline> to see what is available.'
+      }
     },
-    whoami: {
-      description: 'show profile',
-      render: () => `
-        <div class="section-heading">whoami</div>
-        <div class="hero-grid">
-          <div>
-            <p class="eyebrow">AI product architect · builder · outlier</p>
-            <h1 class="hero-title">Tony <span>Zhou</span></h1>
-            <p class="hero-copy"><strong>Tony Zhou</strong>, <strong>41</strong>, with <strong>19 years</strong> of engineering and product experience.<br>Started from Unreal game development, crossed Web2, Web3, public-chain research and technical leadership, <strong>now turning complex systems into usable AI products.</strong></p>
-          </div>
-          <div class="hero-meta">
-            <div>BASE<span class="meta-value">Shanghai · UTC+8</span></div>
-            <div>STATUS<span class="meta-value">open to build</span></div>
-            <div>EDUCATION<span class="meta-value">CS + AI / parallel</span></div>
-            <div>GITHUB<span class="meta-value">@forchain</span></div>
-          </div>
-        </div>`
-    },
-    experience: {
-      description: 'list career experience',
-      render: () => `
-        <div class="section-heading">~/experience</div>
-        <ul class="experience-list">
-          <li class="experience-row"><span class="experience-year">2023—now</span><span class="experience-company">熙象 AI</span><span class="experience-role">产品研发架构师 · AI 教育应用 / LangChain / Dify</span></li>
-          <li class="experience-row"><span class="experience-year">2021—2023</span><span class="experience-company">光追网络</span><span class="experience-role">技术经理 · Web3 / GameFi / Merlin Chain / Space Kill / PopSocial</span></li>
-          <li class="experience-row"><span class="experience-year">2018—2021</span><span class="experience-company">链者科技</span><span class="experience-role">联合创始人 · Qitmeer 公链 / DAGfans 社区</span></li>
-          <li class="experience-row"><span class="experience-year">2015—2018</span><span class="experience-company">巨人网络</span><span class="experience-role">技术经理 · 游戏研发与团队管理</span></li>
-          <li class="experience-row"><span class="experience-year">2011—2015</span><span class="experience-company">Epic Games China</span><span class="experience-role">Unreal 开发 · 游戏引擎与实时 3D</span></li>
-          <li class="experience-row"><span class="experience-year">2009—now</span><span class="experience-company">乐匠互联网</span><span class="experience-role">联合创始人 · 链者量化策略平台</span></li>
-        </ul>`
-    },
-    skills: {
-      description: 'cat technical skills',
-      render: () => `
-        <div class="section-heading">~/skills.txt</div>
-        <ul class="skill-list">
-          <li class="skill-row"><span class="skill-number">01</span><span class="skill-name">AI 工程</span><span class="skill-detail">LLM Agent / Dify / LangChain / FastAPI</span></li>
-          <li class="skill-row"><span class="skill-number">02</span><span class="skill-name">量化交易</span><span class="skill-detail">backtrader / SvelteKit / strategy platforms</span></li>
-          <li class="skill-row"><span class="skill-number">03</span><span class="skill-name">Web3 / 区块链</span><span class="skill-detail">公链架构 / 智能合约 / Solidity / Cosmos SDK</span></li>
-          <li class="skill-row"><span class="skill-number">04</span><span class="skill-name">游戏开发</span><span class="skill-detail">Unity / Unreal / Godot / real-time 3D</span></li>
-          <li class="skill-row"><span class="skill-number">05</span><span class="skill-name">全栈开发</span><span class="skill-detail">Python / Java / TypeScript / C# / Go</span></li>
-          <li class="skill-row"><span class="skill-number">06</span><span class="skill-name">运维 / DevOps</span><span class="skill-detail">AWS / K8s / Cloudflare / 阿里云 / 华为云</span></li>
-          <li class="skill-row"><span class="skill-number">07</span><span class="skill-name">团队与社区</span><span class="skill-detail">国际化团队管理 / 开源社区运营</span></li>
-        </ul>`
-    },
-    projects: {
-      description: 'show selected projects',
-      render: () => `
-        <div class="section-heading">~/projects</div>
-        <pre class="tree"><span class="tree-accent">~/projects</span>
-│─── <span class="tree-accent">qitmeer/</span>
-│   ├─── dag-consensus.md
-│   ├─── node-architecture.md
-│   └─── community/
-├─── <span class="tree-accent">dagfans/</span>
-│   ├─── open-community
-│   └─── ecosystem-tools
-├─── <span class="tree-accent">chain-quant/</span>
-│   ├─── strategy-engine.py
-│   └─── dashboard.svelte
-├─── <span class="tree-accent">ai-education/</span>
-│   ├─── agent-orchestration
-│   └─── learning-workflows
-└─── <span class="tree-accent">gamefi-lab/</span>
-    ├─── merlin-chain
-    └─── space-kill</pre>`
-    },
-    contact: {
-      description: 'show contact channels',
-      render: () => `
-        <div class="section-heading">contact</div>
-        <ul class="contact-list">
-          <li><span class="contact-key">github</span><a href="https://github.com/forchain" target="_blank" rel="noreferrer">github.com/forchain ↗</a></li>
-          <li><span class="contact-key">email</span><a href="mailto:outlier@chainer.me">outlier@chainer.me</a></li>
-          <li><span class="contact-key">location</span><span>Shanghai, China · open to meaningful problems</span></li>
-        </ul>`
+    zh: {
+      htmlLang: 'zh-CN',
+      metaDesc: 'Tony Zhou — 开发者 / 架构师。人只是一段简短的算法。',
+      menu: {
+        whoami: 'whoami',
+        experience: '经历',
+        skills: '技能',
+        projects: '项目',
+        contact: '联系',
+        theme: '主题',
+        clear: '清屏',
+        help: '帮助'
+      },
+      boot: {
+        lastLogin: '上次登录：',
+        onTty: '于 ttys001'
+      },
+      hint: {
+        type: '输入',
+        forCommands: '查看可用命令',
+        tab: 'TAB',
+        autocomplete: '自动补全',
+        history: '历史'
+      },
+      footer: {
+        location: '上海 · UTC+8'
+      },
+      contact: {
+        eyebrow: 'WELCOME TO MY CYBER HOME',
+        title: '人只是一段简短的算法，10,247 行。',
+        intro: '你好，我是 <strong>Tony Zhou</strong>。请输入 <inline data-command="help">help</inline> 了解更多。',
+        meta: {
+          role: '角色',
+          roleValue: '开发者 / 架构师',
+          linkedin: '领英',
+          linkedinHandle: '@tony-outlier-zhou',
+          mail: '邮箱',
+          mailHandle: 'outlier@chainer.tech',
+          github: 'GitHub',
+          githubHandle: '@forchain'
+        }
+      },
+      whoami: {
+        eyebrow: 'AI 产品架构师 · 创造者 · 异类',
+        title: 'Tony <span>Zhou</span>',
+        copy: '<strong>Tony Zhou</strong>，<strong>41</strong> 岁，拥有 <strong>19 年</strong>工程与产品经验。<br>从 Unreal 游戏开发出发，穿越 Web2、Web3、公链研究与技术管理，<strong>现在把复杂系统变成可用的 AI 产品。</strong>',
+        meta: {
+          base: '所在地',
+          baseValue: '上海 · UTC+8',
+          status: '状态',
+          statusValue: '开放接活',
+          edu: '教育',
+          eduValue: '计算机科学 + AI / 并行计算',
+          github: 'GitHub',
+          githubHandle: '@forchain'
+        }
+      },
+      experience: {
+        heading: '~/经历',
+        items: [
+          { year: '2023—至今', company: '煦象 AI', role: '产品研发架构师 · AI 教育应用 / LangChain / Dify' },
+          { year: '2021—2023', company: '光追网络', role: '技术经理 · Web3 / GameFi / Merlin Chain / Space Kill / PopSocial' },
+          { year: '2018—2021', company: '链者科技', role: '联合创始人 · Qitmeer 公链 / DAGfans 社区' },
+          { year: '2015—2018', company: '巨人网络', role: '技术经理 · 游戏研发与团队管理' },
+          { year: '2011—2015', company: 'Epic Games China', role: 'Unreal 开发 · 游戏引擎与实时 3D' },
+          { year: '2009—至今', company: '乐匠互联网', role: '联合创始人 · 链者量化策略平台' }
+        ]
+      },
+      skills: {
+        heading: '~/技能.txt',
+        items: [
+          { n: '01', name: 'AI 工程', detail: 'LLM Agent / Dify / LangChain / FastAPI' },
+          { n: '02', name: '量化交易', detail: 'backtrader / SvelteKit / 策略平台' },
+          { n: '03', name: 'Web3 / 区块链', detail: '公链架构 / 智能合约 / Solidity / Cosmos SDK' },
+          { n: '04', name: '游戏开发', detail: 'Unity / Unreal / Godot / 实时 3D' },
+          { n: '05', name: '全栈开发', detail: 'Python / Java / TypeScript / C# / Go' },
+          { n: '06', name: '运维 / DevOps', detail: 'AWS / K8s / Cloudflare / 阿里云 / 华为云' },
+          { n: '07', name: '团队与社区', detail: '国际化团队管理 / 开源社区运营' }
+        ]
+      },
+      projects: {
+        heading: '~/项目',
+        tree:
+`├── <accent>qitmeer/</accent>
+│   ├── dag-consensus.md
+│   ├── node-architecture.md
+│   └── community/
+├── <accent>dagfans/</accent>
+│   ├── open-community
+│   └── ecosystem-tools
+├── <accent>chain-quant/</accent>
+│   ├── strategy-engine.py
+│   └── dashboard.svelte
+├── <accent>ai-education/</accent>
+│   ├── agent-orchestration
+│   └── learning-workflows
+└── <accent>gamefi-lab/</accent>
+    ├── merlin-chain
+    └── space-kill`
+      },
+      help: {
+        heading: '可用命令',
+        items: [
+          { cmd: 'whoami', desc: 'Tony Zhou 是谁？' },
+          { cmd: 'ls -la ~/经历', desc: '职业时间线' },
+          { cmd: 'cat ~/技能.txt', desc: '技术工具箱' },
+          { cmd: 'tree ~/项目', desc: '项目与创业' },
+          { cmd: 'contact', desc: '打开沟通渠道' },
+          { cmd: 'theme [dark|light]', desc: '切换主题' },
+          { cmd: 'help', desc: '本帮助' }
+        ],
+        unknown: '未找到命令',
+        unknownHint: '输入 <inline data-command="help">help</inline> 查看可用命令。'
+      },
+      theme: {
+        current: '当前主题',
+        usage: '用法：theme dark | theme light | theme（切换）',
+        unknown: '未知参数'
+      },
+      notFound: {
+        msg: 'zsh：未找到命令：',
+        hint: '输入 <inline data-command="help">help</inline> 查看可用命令。'
+      }
     }
   };
 
-  function promptMarkup(command) {
-    return `<span class="prompt-user">outlier</span><span class="prompt-at">@</span><span class="prompt-host">chainer.tech</span><span class="prompt-path">:~</span><span class="prompt-symbol">›</span> ${escapeHtml(command)}`;
+  /* ---------------- i18n helpers ---------------- */
+  function currentLang() {
+    return root.dataset.lang || 'en';
   }
 
+  function t(path) {
+    const lang = I18N[currentLang()];
+    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : null), lang);
+  }
+
+  function applyI18nStatic() {
+    const lang = I18N[currentLang()];
+    document.documentElement.lang = lang.htmlLang;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', lang.metaDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const value = t(key);
+      if (value != null) el.textContent = value;
+    });
+
+    document.querySelectorAll('.menu-command[data-label-key]').forEach((btn) => {
+      const key = btn.getAttribute('data-label-key');
+      const value = t(key);
+      if (value != null) btn.textContent = value;
+    });
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.lang === currentLang());
+    });
+  }
+
+  /* ---------------- string helpers ---------------- */
   function escapeHtml(value) {
     return value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+  }
+
+  function inlineCommand(command, label) {
+    return `<button type="button" class="inline-command" data-command="${escapeHtml(command)}">${escapeHtml(label)}</button>`;
+  }
+
+  function compileTemplate(template) {
+    return template.replace(/<inline data-command="([^"]+)">([^<]+)<\/inline>/g, (_, command, label) => inlineCommand(command, label));
+  }
+
+  function compileTree(tree) {
+    return tree.replace(/<accent>([^<]+)<\/accent>/g, (_, label) => `<span class="tree-accent">${escapeHtml(label)}</span>`);
+  }
+
+  /* ---------------- command renderers ---------------- */
+  function contactMarkup() {
+    const c = t('contact');
+    return `
+        <pre class="ascii-art">${escapeHtml(ASCII_ART)}</pre>
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">${escapeHtml(c.eyebrow)}</p>
+            <h1 class="hero-title">${escapeHtml(c.title)}</h1>
+            <p class="hero-copy">${compileTemplate(c.intro)}</p>
+          </div>
+          <div class="hero-meta">
+            <div>${escapeHtml(c.meta.role)}<span class="meta-value">${escapeHtml(c.meta.roleValue)}</span></div>
+            <div>${escapeHtml(c.meta.linkedin)}<a class="meta-value meta-link" href="https://www.linkedin.com/in/tony-outlier-zhou/" target="_blank" rel="noreferrer">${escapeHtml(c.meta.linkedinHandle)} ↗</a></div>
+            <div>${escapeHtml(c.meta.mail)}<a class="meta-value meta-link" href="mailto:${escapeHtml(c.meta.mailHandle)}">${escapeHtml(c.meta.mailHandle)}</a></div>
+            <div>${escapeHtml(c.meta.github)}<a class="meta-value meta-link" href="https://github.com/forchain" target="_blank" rel="noreferrer">${escapeHtml(c.meta.githubHandle)} ↗</a></div>
+          </div>
+        </div>`;
+  }
+
+  function whoamiMarkup() {
+    const w = t('whoami');
+    return `
+        <div class="section-heading">whoami</div>
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">${escapeHtml(w.eyebrow)}</p>
+            <h1 class="hero-title">${compileTemplate(w.title)}</h1>
+            <p class="hero-copy">${compileTemplate(w.copy)}</p>
+          </div>
+          <div class="hero-meta">
+            <div>${escapeHtml(w.meta.base)}<span class="meta-value">${escapeHtml(w.meta.baseValue)}</span></div>
+            <div>${escapeHtml(w.meta.status)}<span class="meta-value">${escapeHtml(w.meta.statusValue)}</span></div>
+            <div>${escapeHtml(w.meta.edu)}<span class="meta-value">${escapeHtml(w.meta.eduValue)}</span></div>
+            <div>${escapeHtml(w.meta.github)}<a class="meta-value meta-link" href="https://github.com/forchain" target="_blank" rel="noreferrer">${escapeHtml(w.meta.githubHandle)} ↗</a></div>
+          </div>
+        </div>`;
+  }
+
+  function experienceMarkup() {
+    const e = t('experience');
+    const items = e.items.map((row) => `
+          <li class="experience-row"><span class="experience-year">${escapeHtml(row.year)}</span><span class="experience-company">${escapeHtml(row.company)}</span><span class="experience-role">${escapeHtml(row.role)}</span></li>`).join('');
+    return `
+        <div class="section-heading">${escapeHtml(e.heading)}</div>
+        <ul class="experience-list">${items}
+        </ul>`;
+  }
+
+  function skillsMarkup() {
+    const s = t('skills');
+    const items = s.items.map((row) => `
+          <li class="skill-row"><span class="skill-number">${escapeHtml(row.n)}</span><span class="skill-name">${escapeHtml(row.name)}</span><span class="skill-detail">${escapeHtml(row.detail)}</span></li>`).join('');
+    return `
+        <div class="section-heading">${escapeHtml(s.heading)}</div>
+        <ul class="skill-list">${items}
+        </ul>`;
+  }
+
+  function projectsMarkup() {
+    const p = t('projects');
+    return `
+        <div class="section-heading">${escapeHtml(p.heading)}</div>
+        <pre class="tree"><span class="tree-accent">${escapeHtml(p.heading.startsWith('~/') ? p.heading : ('~/' + p.heading))}</span>
+${compileTree(p.tree)}</pre>`;
+  }
+
+  function helpMarkup() {
+    const h = t('help');
+    const items = h.items.map((row) => `<button type="button" class="inline-command" data-command="${escapeHtml(row.cmd)}">${escapeHtml(row.cmd)}</button><span class="help-description">${escapeHtml(row.desc)}</span>`).join('');
+    return `
+        <div class="section-heading">${escapeHtml(h.heading)}</div>
+        <div class="help-grid">${items}
+        </div>`;
+  }
+
+  const COMMANDS = {
+    contact: { description: 'open a communication channel', render: contactMarkup },
+    whoami: { description: 'who is Tony Zhou?', render: whoamiMarkup },
+    experience: { description: 'career timeline', render: experienceMarkup },
+    skills: { description: 'technical toolkit', render: skillsMarkup },
+    projects: { description: 'selected projects & ventures', render: projectsMarkup },
+    help: { description: 'this list', render: helpMarkup }
+  };
+
+  /* ---------------- output / command handling ---------------- */
+  function promptMarkup(command) {
+    return `<span class="prompt-user">outlier</span><span class="prompt-at">@</span><span class="prompt-host">chainer.tech</span><span class="prompt-path">:~</span><span class="prompt-symbol">›</span> ${escapeHtml(command)}`;
   }
 
   function appendEntry(command, content) {
@@ -131,24 +419,12 @@
     entry.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
-  function bannerMarkup() {
-    return `<pre class="ascii-art">${escapeHtml(ASCII_ART)}</pre>
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">welcome to the source</p>
-          <h1 class="hero-title">Build <span>the improbable.</span></h1>
-          <p class="hero-copy">Hi, I'm <strong>Tony Zhou</strong>.<br>Please type <button type="button" class="inline-command" data-command="help">help</button> to know more about me.</p>
-        </div>
-        <div class="hero-meta"><div>ROLE<span class="meta-value">AI architect</span></div><div>EXP<span class="meta-value">19 years</span></div><div>BASE<span class="meta-value">Shanghai</span></div><div>MODE<span class="meta-value">terminal / online</span></div></div>
-      </div>`;
-  }
-
   function showBanner(withCommand = true) {
-    if (withCommand) appendEntry('banner', bannerMarkup());
+    if (withCommand) appendEntry('contact', contactMarkup());
     else {
       const entry = document.createElement('article');
       entry.className = 'output-entry';
-      entry.innerHTML = bannerMarkup();
+      entry.innerHTML = contactMarkup();
       output.appendChild(entry);
     }
   }
@@ -160,10 +436,9 @@
   function resolveCommand(command) {
     const normalized = normalizeCommand(command).toLowerCase();
     if (normalized === 'clear') return 'clear';
-    if (normalized === 'banner') return 'banner';
     if (normalized === 'whoami') return 'whoami';
     if (normalized === 'help') return 'help';
-    if (normalized === 'contact') return 'contact';
+    if (normalized === 'contact' || normalized === 'banner') return 'contact';
     if (normalized.startsWith('theme')) return 'theme';
     if (normalized === 'cat ~/skills.txt' || normalized === 'cat skills.txt') return 'skills';
     if (normalized === 'tree ~/projects' || normalized === 'tree projects') return 'projects';
@@ -189,7 +464,8 @@
   }
 
   function themeDescription() {
-    return `current theme: ${getTheme()}. usage: theme dark | theme light | theme (toggle)`;
+    const desc = t('theme');
+    return `${desc.current}: ${getTheme()}. ${desc.usage}`;
   }
 
   function execute(rawCommand, record = true) {
@@ -205,31 +481,34 @@
       output.innerHTML = '';
       return;
     }
-    if (resolved === 'banner') {
-      appendEntry(command, bannerMarkup());
-      return;
-    }
     if (resolved === 'theme') {
       const args = command.split(' ').slice(1).filter(Boolean);
       const arg = args[0] && args[0].toLowerCase();
+      const unknown = t('theme.unknown');
       if (arg === 'dark' || arg === 'light') {
         setTheme(arg);
       } else if (args.length === 0) {
         toggleTheme();
       } else {
-        appendEntry(command, `<p class="error-line">theme: unknown argument "${escapeHtml(args[0])}"</p><p class="dim-line">usage: theme [dark|light]</p>`);
+        appendEntry(command, `<p class="error-line">theme: ${escapeHtml(unknown)} &quot;${escapeHtml(args[0])}&quot;</p><p class="dim-line">${escapeHtml(t('theme.usage'))}</p>`);
         return;
       }
       appendEntry(command, `<p class="dim-line">${escapeHtml(themeDescription())}</p>`);
+      return;
+    }
+    if (resolved === 'contact') {
+      appendEntry(command, contactMarkup());
       return;
     }
     if (resolved && COMMANDS[resolved]) {
       appendEntry(command, COMMANDS[resolved].render());
       return;
     }
-    appendEntry(command, `<p class="error-line">zsh: command not found: ${escapeHtml(command.split(' ')[0])}</p><p class="dim-line">type <button type="button" class="inline-command" data-command="help">help</button> to see what is available.</p>`);
+    const nf = t('notFound');
+    appendEntry(command, `<p class="error-line">${escapeHtml(nf.msg)} ${escapeHtml(command.split(' ')[0])}</p><p class="dim-line">${compileTemplate(nf.hint)}</p>`);
   }
 
+  /* ---------------- typewriter / boot ---------------- */
   function typeWriter(element, text, speed = 45) {
     return new Promise((resolve) => {
       let index = 0;
@@ -248,6 +527,7 @@
   }
 
   function boot() {
+    applyI18nStatic();
     const now = new Date();
     loginDate.textContent = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
     typeWriter(bootCommand, './resume.sh', 40).then(() => {
@@ -260,6 +540,7 @@
     });
   }
 
+  /* ---------------- events ---------------- */
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     execute(input.value);
@@ -280,7 +561,7 @@
     } else if (event.key === 'Tab') {
       event.preventDefault();
       const partial = input.value.trim().toLowerCase();
-      const options = ['whoami', 'ls -la ~/experience', 'cat ~/skills.txt', 'tree ~/projects', 'contact', 'theme', 'theme dark', 'theme light', 'help', 'clear', 'banner'];
+      const options = ['whoami', 'ls -la ~/experience', 'cat ~/skills.txt', 'tree ~/projects', 'contact', 'theme', 'theme dark', 'theme light', 'help', 'clear'];
       const match = options.find((option) => option.startsWith(partial) && option !== partial);
       if (match) input.value = match;
     }
@@ -296,6 +577,19 @@
     });
   }
 
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      root.dataset.lang = btn.dataset.lang;
+      applyI18nStatic();
+      // re-render current output with new language
+      output.innerHTML = '';
+      const entry = document.createElement('article');
+      entry.className = 'output-entry';
+      entry.innerHTML = contactMarkup();
+      output.appendChild(entry);
+    });
+  });
+
   document.addEventListener('click', (event) => {
     const commandButton = event.target.closest('[data-command]');
     if (commandButton) {
@@ -306,7 +600,7 @@
         menu.classList.remove('open');
         menu.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
       }
-    } else if (booted && !event.target.closest('a, button')) {
+    } else if (booted && !event.target.closest('a, button, .lang-switch')) {
       input.focus();
     }
 

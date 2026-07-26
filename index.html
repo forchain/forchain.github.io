@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,22 +24,21 @@
           <span></span>
         </button>
         <nav class="menu-list">
-          <button type="button" class="menu-command" data-command="whoami">whoami</button>
-          <button type="button" class="menu-command" data-command="ls -la ~/experience">ls -la ~/experience</button>
-          <button type="button" class="menu-command" data-command="cat ~/skills.txt">cat ~/skills.txt</button>
-          <button type="button" class="menu-command" data-command="tree ~/projects">tree ~/projects</button>
-          <button type="button" class="menu-command" data-command="contact">contact</button>
-          <button type="button" class="menu-command" data-command="theme">theme</button>
-          <button type="button" class="menu-command" data-command="banner">banner</button>
-          <button type="button" class="menu-command" data-command="help">help</button>
-          <button type="button" class="menu-command" data-command="clear">clear</button>
+          <button type="button" class="menu-command" data-command="whoami" data-label-key="menu.whoami">whoami</button>
+          <button type="button" class="menu-command" data-command="ls -la ~/experience" data-label-key="menu.experience">experience</button>
+          <button type="button" class="menu-command" data-command="cat ~/skills.txt" data-label-key="menu.skills">skills</button>
+          <button type="button" class="menu-command" data-command="tree ~/projects" data-label-key="menu.projects">projects</button>
+          <button type="button" class="menu-command" data-command="contact" data-label-key="menu.contact">contact</button>
+          <button type="button" class="menu-command" data-command="theme" data-label-key="menu.theme">theme</button>
+          <button type="button" class="menu-command" data-command="clear" data-label-key="menu.clear">clear</button>
+          <button type="button" class="menu-command" data-command="help" data-label-key="menu.help">help</button>
         </nav>
       </div>
     </header>
 
     <section class="terminal-body">
       <div class="boot-sequence" id="boot-sequence" aria-live="polite">
-        <div class="boot-line"><span class="muted">Last login:</span> <span id="login-date">today</span> on ttys001</div>
+        <div class="boot-line"><span class="muted" data-i18n="boot.lastLogin">Last login:</span> <span id="login-date">today</span> <span data-i18n="boot.onTty">on ttys001</span></div>
         <div class="boot-line boot-status"><span class="prompt-symbol">›</span> <span class="boot-command" id="boot-command"></span><span class="cursor-block" aria-hidden="true"></span></div>
         <div class="progress-track" aria-hidden="true"><span class="progress-fill"></span></div>
       </div>
@@ -50,10 +49,30 @@
         <label class="prompt-label" for="command-input"><span class="prompt-user">outlier</span><span class="prompt-at">@</span><span class="prompt-host">chainer.tech</span><span class="prompt-path">:~</span><span class="prompt-symbol">›</span></label>
         <input id="command-input" name="command" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command" autofocus>
       </form>
-      <div class="terminal-hint"><span class="hint-dot"></span> type <button type="button" class="inline-command" data-command="help">help</button> for available commands <span class="hint-key">TAB</span> autocomplete <span class="hint-key">↑↓</span> history</div>
+      <div class="terminal-hint">
+        <span class="hint-dot"></span>
+        <span data-i18n="hint.type">type</span>
+        <button type="button" class="inline-command" data-command="help">help</button>
+        <span data-i18n="hint.forCommands">for available commands</span>
+        <span class="hint-key" data-i18n="hint.tab">TAB</span>
+        <span data-i18n="hint.autocomplete">autocomplete</span>
+        <span class="hint-key">↑↓</span>
+        <span data-i18n="hint.history">history</span>
+      </div>
     </section>
   </main>
-  <footer class="site-footer"><span>© 2026 Tony Zhou</span><span class="footer-separator">/</span><span>Shanghai · UTC+8</span><a href="https://github.com/forchain" target="_blank" rel="noreferrer">github.com/forchain ↗</a></footer>
+  <footer class="site-footer">
+    <span>© 2026 Tony Zhou</span>
+    <span class="footer-separator">/</span>
+    <span data-i18n="footer.location">Shanghai · UTC+8</span>
+    <span class="footer-separator">/</span>
+    <span class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="zh" aria-label="中文">中</button>
+      <span class="lang-sep">/</span>
+      <button type="button" class="lang-btn" data-lang="en" aria-label="English">En</button>
+    </span>
+    <a href="https://github.com/forchain" target="_blank" rel="noreferrer">github.com/forchain ↗</a>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
