@@ -30,7 +30,6 @@
         skills: 'skills',
         projects: 'projects',
         contact: 'contact',
-        theme: 'theme',
         clear: 'clear',
         help: 'help'
       },
@@ -174,7 +173,7 @@
       },
       contact: {
         eyebrow: 'WELCOME TO MY CYBER HOME',
-        title: '人只是一段简短的算法，<accent>10,247</accent> 行。',
+        title: '人类只是一段简短的算法，<accent>10,247</accent> 行。',
         intro: '你好，我是 <strong>Tony Zhou</strong>。请输入 <inline data-command="help">help</inline> 了解更多。',
         meta: {
           role: '角色',
