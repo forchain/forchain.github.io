@@ -249,9 +249,9 @@
         heading: '可用命令',
         items: [
           { cmd: 'whoami', desc: 'Tony Zhou 是谁？' },
-          { cmd: 'ls -la ~/经历', desc: '职业时间线' },
-          { cmd: 'cat ~/技能.txt', desc: '技术工具箱' },
-          { cmd: 'tree ~/项目', desc: '项目与创业' },
+          { cmd: 'ls -la ~/experience', desc: '职业时间线' },
+          { cmd: 'cat ~/skills.txt', desc: '技术工具箱' },
+          { cmd: 'tree ~/projects', desc: '项目与创业' },
           { cmd: 'contact', desc: '打开沟通渠道' },
           { cmd: 'help', desc: '本帮助' }
         ],
