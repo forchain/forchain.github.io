@@ -92,13 +92,13 @@
       skills: {
         heading: '~/skills.txt',
         items: [
-          { n: '01', name: 'AI 工程', detail: 'LLM Agent / Dify / LangChain / FastAPI' },
-          { n: '02', name: '量化交易', detail: 'backtrader / SvelteKit / strategy platforms' },
-          { n: '03', name: 'Web3 / 区块链', detail: '公链架构 / 智能合约 / Solidity / Cosmos SDK' },
-          { n: '04', name: '游戏开发', detail: 'Unity / Unreal / Godot / real-time 3D' },
-          { n: '05', name: '全栈开发', detail: 'Python / Java / TypeScript / C# / Go' },
-          { n: '06', name: '运维 / DevOps', detail: 'AWS / K8s / Cloudflare / 阿里云 / 华为云' },
-          { n: '07', name: '团队与社区', detail: '国际化团队管理 / 开源社区运营' }
+          { n: '01', name: 'AI', detail: 'LangChain, Dify, RAG, Claude, Codex, Orca, Vibe Coding, PyTorch, CUDA' },
+          { n: '02', name: 'Language', detail: 'Python, TypeScript, Go, C++, C#, Java' },
+          { n: '03', name: 'Backend', detail: 'FastAPI, Spring Boot, Gin, MPI' },
+          { n: '04', name: 'Frontend', detail: 'NextJS, SvelteKit, Vue/Nuxt, React Native' },
+          { n: '05', name: 'Web3 / Blockchain', detail: 'BlockDAG, Cosmos SDK, Tendermint, Solidity, Backtrader' },
+          { n: '06', name: 'Game Development', detail: 'Unity, Unreal, Godot' },
+          { n: '07', name: 'DevOps / Cloud', detail: 'AWS, Kubernetes, Cloudflare, Alibaba Cloud, CI/CD, Linux, OpenRouter' }
         ]
       },
       projects: {
@@ -216,13 +216,13 @@
       skills: {
         heading: '~/技能.txt',
         items: [
-          { n: '01', name: 'AI 工程', detail: 'LLM Agent / Dify / LangChain / FastAPI' },
-          { n: '02', name: '量化交易', detail: 'backtrader / SvelteKit / 策略平台' },
-          { n: '03', name: 'Web3 / 区块链', detail: '公链架构 / 智能合约 / Solidity / Cosmos SDK' },
-          { n: '04', name: '游戏开发', detail: 'Unity / Unreal / Godot / 实时 3D' },
-          { n: '05', name: '全栈开发', detail: 'Python / Java / TypeScript / C# / Go' },
-          { n: '06', name: '运维 / DevOps', detail: 'AWS / K8s / Cloudflare / 阿里云 / 华为云' },
-          { n: '07', name: '团队与社区', detail: '国际化团队管理 / 开源社区运营' }
+          { n: '01', name: 'AI', detail: 'LangChain, Dify, RAG, Claude, Codex, Orca, Vibe Coding, PyTorch, CUDA' },
+          { n: '02', name: '语言', detail: 'Python, TypeScript, Go, C++, C#, Java' },
+          { n: '03', name: '后端', detail: 'FastAPI, Spring Boot, Gin, MPI' },
+          { n: '04', name: '前端', detail: 'NextJS, SvelteKit, Vue/Nuxt, React Native' },
+          { n: '05', name: 'Web3 / 区块链', detail: 'BlockDAG, Cosmos SDK, Tendermint, Solidity, Backtrader' },
+          { n: '06', name: '游戏', detail: 'Unity, Unreal, Godot' },
+          { n: '07', name: '运维', detail: 'AWS, Kubernetes, Cloudflare, Alibaba Cloud, CI/CD, Linux, OpenRouter' }
         ]
       },
       projects: {
